@@ -1,6 +1,7 @@
 # READ ME
 
 to compile run `./bin/build.sh` from the root directory.
+to compile on file change run `./bin/watch.sh` from the root directory. NOTE: you must install inotify-tools with `sudo apt install inotify-tools`
 
 ## Citations
 

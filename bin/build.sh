@@ -1,3 +1,4 @@
+echo "building report"
 pandoc \
   -N \
   --from markdown+implicit_header_references \
