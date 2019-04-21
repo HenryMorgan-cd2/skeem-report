@@ -10,9 +10,11 @@ pandoc \
   --toc \
   --listings \
   -H ./bin/listings-setup.tex \
+  --filter ./bin/filter.py \
   --filter pandoc-citeproc \
   --bibliography=references.bib \
   --template ./bin/template.tex \
-  -o report.pdf \
+  -o report.tex \
   `node bin/scripts/filelist.js`
+  # test.md
   # --pdf-engine=xelatex \

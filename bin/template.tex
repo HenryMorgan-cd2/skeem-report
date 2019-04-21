@@ -83,6 +83,85 @@ $if(section-titles)$
 }
 $endif$
 $endif$
+
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+\usepackage{multicol}
+\usepackage{xcolor}
+
+\definecolor{noteQuoteLine}{RGB}{224,215,188}
+\definecolor{noteQuoteBackground}{RGB}{249,245,233}
+
+\newsavebox{\coloredquotationbox}
+
+\newenvironment{noteQuote}
+ {%
+  \begin{trivlist}
+  \begin{lrbox}{\coloredquotationbox}
+  \begin{minipage}{\dimexpr\linewidth-2\fboxsep}
+ }
+ {%
+  \end{minipage}
+  \end{lrbox}
+  \item\relax
+  \parbox{\linewidth}{
+    \begingroup
+    {\color{noteQuoteLine}\hrule}%
+    \color{noteQuoteBackground}%
+    {\color{noteQuoteLine}\hrule}%
+    \endgroup
+
+    \colorbox{noteQuoteBackground}{\usebox{\coloredquotationbox}}\par\nointerlineskip
+    
+    \begingroup
+    {\color{noteQuoteLine}\hrule}%
+    \color{noteQuoteBackground}%
+    {\color{noteQuoteLine}\hrule}%
+    \endgroup
+  }
+  \end{trivlist}
+ }
+
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+% CUSTOM STUFF
+
+
 $if(beamerarticle)$
 \usepackage{beamerarticle} % needs to be loaded first
 $endif$
@@ -195,7 +274,7 @@ $endif$
 $if(verbatim-in-note)$
 \usepackage{fancyvrb}
 $endif$
-\usepackage{xcolor}
+
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \IfFileExists{bookmark.sty}{\usepackage{bookmark}}{\usepackage{hyperref}}
 \hypersetup{

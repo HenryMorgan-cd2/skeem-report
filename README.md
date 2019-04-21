@@ -28,3 +28,16 @@ Term 2
   ~ Definition 2a
   ~ Definition 2b
 ```
+
+## Multi column Lists
+
+\begin{multicols}{3}
+\begin{itemize}
+\item item 1
+\item item 2
+\item item 3
+\item item 4
+\item item 5
+\item item 6
+\end{itemize}
+\end{multicols}
