@@ -342,8 +342,9 @@ be attempting to solve. It will provide a high level overview of
 existing practices, how they currently function, why they exist and why
 they are problems which require solving.
 
-\hypertarget{spas-and-apis}{%
-\subsection{SPAs and APIs}\label{spas-and-apis}}
+\hypertarget{current-state-of-web-applications}{%
+\subsection{Current state of web
+applications}\label{current-state-of-web-applications}}
 
 SPAs or single-page applications are a growing trend on the web unlike
 traditional architectures where each page is a separate resource with
@@ -358,7 +359,7 @@ much more responsive interaction.
 
 \begin{noteQuote}
 
-\textbf{Note:} This is a simplified example of how SPAs can work. In
+\textbf{Note:} This is a simplified example of how SPAs tend to work. In
 reality having a user download the entire code bundle would not be
 ideal, especially on slower networks. Therefore optimizations are
 performed such as code splitting where the user only downloads the
@@ -368,16 +369,42 @@ download any missing code required to render new pages.
 
 \end{noteQuote}
 
-SPAs allow for extremely responsive websites, however, they create a new
-issue - how do you cope with the need for user-specific, dynamic data.
-It goes without saying that it would be highly impractical (, slow, and
-insecure) to download the entirety of the database just to allow a user
-to view a blog without waiting for a network request. This issue is
-solved by the creation of an API.
+\hypertarget{apis}{%
+\subsection{APIs}\label{apis}}
+
+SPAs allow for extremely responsive and interactive websites, however,
+they create a new issue - how do you fetch data. Previously the server
+was responsible for constructing the page and therefore could query the
+database to obtain all the information needed. The client, however, can
+not directly query the database and instead must communicate through an
+API.
 
 An API accepts requests for specific data and responds in a pre-defined
-and simplistic manner. They provide the ability for SPAs to request the
-required data when needed.
+format. APIs referer to how a system is interacted with, this can
+include interactions with code libraries or http interfaces into a
+webserver, either way the qualities of a good api are the same. They
+provide the ability to request the required data when needed. Good APIs
+will consistent, flexible, and specific.
+
+\begin{description}
+\tightlist
+\item[Consistency]
+in an API allows developers to become more familiar with its uses more
+quickly and allows them to, correctly, make assumptions about how to use
+parts of the API which they previously may not have used. If a developer
+has to look at documentation whenever they are attempting something new
+then the API may be inconsistent.
+\item[Flexible]
+APIs do not force developers into pre-determined patterns. APIs should
+act to supply the needed data, not determine what data can be shown.
+This not only concerns being able to request all data but also being
+able to not request unneeded data. For instance, if when a developer
+requires an articles title but are forced to receive the entire body of
+the article then the end user will be downloading unnecessary data,
+which on slower networks could be significant.
+\end{description}
+
+Specific :
 
 \begin{lstlisting}[caption={A mock example of an API request and it corresponding response.}]
 REQUEST: /api/users
@@ -385,6 +412,7 @@ RESPONSE: [ { name: 'Alice' }, { name: 'Bob' }, { name: 'Carol' } ]
 \end{lstlisting}
 
 \begin{itemize}
+\tightlist
 \item
   APIs are hard to make
 
@@ -401,15 +429,6 @@ RESPONSE: [ { name: 'Alice' }, { name: 'Bob' }, { name: 'Carol' } ]
   API design usually doesn't require a team of people to maintain but
   everyone needs to interact with at some point, waste of time training
   people
-\item
-  Spas are growing in popularity however with an SPA comes the need to
-  an API to serve the correct data
-\item
-  Pages are no longer requested and built on the server, instead they
-  are built on the client. This allows websites to be more interactive
-  and can massively increase responsiveness. However, with SPAs comes a
-  new issue:- you need a way to request data from the server, this leads
-  to the need of an API.
 \end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
@@ -418,7 +437,9 @@ RESPONSE: [ { name: 'Alice' }, { name: 'Bob' }, { name: 'Carol' } ]
 \tightlist
 \item
   Apis tend to require knowledge which is not needed for front end
-  development.
+  development. Another issue with APIs is that they usually require
+  knowledge which is not needed for front-end developers. This leads to
+  the need for additional training.
 \end{itemize}
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
@@ -468,6 +489,12 @@ Separation of code but a strong connection on functionality.
 Building an API is easy, building a consistent and flexible API is hard.
 
 \begin{center}\rule{0.5\linewidth}{\linethickness}\end{center}
+
+\hypertarget{authentication}{%
+\subsection{Authentication}\label{authentication}}
+
+Not only is it important to be able to request data flexibly but also
+limit what data can be accessed per user.
 
 \hypertarget{databases}{%
 \subsection{Databases}\label{databases}}
@@ -575,9 +602,9 @@ incredibly complex even when having to traverse only a few levels deep.
 \hypertarget{literature-review}{%
 \section{Literature Review}\label{literature-review}}
 
-\begin{quote}
-find some stuff how does it solve the problem where does it fail
-\end{quote}
+In this chapter I shall discuss existing technologies which solve the
+defined problem. I shall briefly describe how each solution functions as
+well as their advantages and limitations.
 
 \begin{itemize}
 \item
@@ -600,16 +627,8 @@ find some stuff how does it solve the problem where does it fail
   \item
     Stores arbitrarily shaped json allowing data to be stored in a
     fashion similar to its usage
-  \end{itemize}
-\item
-  Excel
-
-  \begin{itemize}
-  \tightlist
   \item
-    Very simple
-  \item
-    Fails at associations, files etc.
+    eliminates the tree problem
   \end{itemize}
 \item
   Web framework
@@ -946,6 +965,14 @@ functionallity, and how to use it.
 \end{itemize}
 \end{quote}
 
+Skeem is a fully manager service Skeem wraps a standard object
+relational sql database. It allows queries specifying query trees. It
+provides methods to authenticate users and limits their actions. It has
+hooks utilizing web sockets to receive updates when ever data changes in
+order to prevent a user from viewing stale data. Skeem can be fully
+customized and managed from either a command line interface or from a
+gui.
+
 \hypertarget{models}{%
 \subsection{Models}\label{models}}
 
@@ -1145,8 +1172,8 @@ Retrieving the record count can be disabled by passing the option of
 Controlling what users can access, who can create and edit data is an
 essential part of all application which make use of a database.
 
-\hypertarget{authentication}{%
-\subsubsection{Authentication}\label{authentication}}
+\hypertarget{authentication-1}{%
+\subsubsection{Authentication}\label{authentication-1}}
 
 Before we can control a users access we must first be able to determine
 who they are. Skeem provides a couple of ways in which to authenticate
@@ -2293,8 +2320,8 @@ If the \passthrough{\lstinline!withCount!} flag is specified then skeem
 \hypertarget{sessions}{%
 \subsection{Sessions}\label{sessions}}
 
-\hypertarget{authentication-1}{%
-\subsubsection{Authentication}\label{authentication-1}}
+\hypertarget{authentication-2}{%
+\subsubsection{Authentication}\label{authentication-2}}
 
 \begin{enumerate}
 \def\labelenumi{\arabic{enumi}.}

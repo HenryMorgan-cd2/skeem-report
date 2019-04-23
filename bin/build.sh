@@ -14,7 +14,7 @@ pandoc \
   --filter pandoc-citeproc \
   --bibliography=references.bib \
   --template ./bin/template.tex \
-  -o report.tex \
+  -o report.pdf \
   `node bin/scripts/filelist.js`
   # test.md
   # --pdf-engine=xelatex \
