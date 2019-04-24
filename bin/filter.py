@@ -28,13 +28,17 @@ def titleize(text):
 ################ FILTERS
 ################ FILTERS
 
-def notequote(key, value, format, meta):
-  if key == 'BlockQuote' and format == 'latex':
-    if stringify(value).startswith(":note"):
-      # p(json.dumps(value[0]['c'][0]))
-      value[0]['c'][0] = Strong([Str("Note:")]) # remove the ":note" prefix
-      # p(json.dumps(value))
-      return [latex("\\begin{noteQuote}")] + value + [latex("\\end{noteQuote}")]
+def customQuote(tag, prefix, blockName):
+  def replaceQuote(key, value, format, meta):
+    if key == 'BlockQuote' and format == 'latex':
+      if stringify(value).startswith(":" + tag):
+        value[0]['c'][0] = Strong([Str(prefix)]) # remove the ":note" prefix
+        return [latex("\\begin{"+ blockName +"}")] + value + [latex("\\end{"+ blockName +"}")]
+  return replaceQuote
+
+noteQuote = customQuote("note", "Note:", "noteQuote")
+commentQuote = customQuote("comment", "Comment:", "commentQuote")
+
 
 def titlizeHeadings(key, value, format, meta):
   if (key == 'Header'):
@@ -42,7 +46,13 @@ def titlizeHeadings(key, value, format, meta):
     titled = titleize(stringify(text))
     return Header(size, meta, [Str(titled)])
 
+filters = [
+  titlizeHeadings,
+  noteQuote,
+  commentQuote,
+]
+
 
 if __name__ == "__main__":
-  toJSONFilters([notequote, titlizeHeadings])
+  toJSONFilters(filters)
   debugFile.close()

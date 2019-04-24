@@ -110,6 +110,14 @@ $endif$
 \definecolor{noteQuoteLine}{RGB}{224,215,188}
 \definecolor{noteQuoteBackground}{RGB}{249,245,233}
 
+\newcommand{\noteBorder}[2]{
+  \begingroup
+  {\color{#2}\hrule}%
+  \color{#1}%
+  {\color{#2}\hrule}%
+  \endgroup
+} %
+
 \newsavebox{\coloredquotationbox}
 
 \newenvironment{noteQuote}
@@ -123,19 +131,32 @@ $endif$
   \end{lrbox}
   \item\relax
   \parbox{\linewidth}{
-    \begingroup
-    {\color{noteQuoteLine}\hrule}%
-    \color{noteQuoteBackground}%
-    {\color{noteQuoteLine}\hrule}%
-    \endgroup
-
+    \noteBorder{noteQuoteBackground}{noteQuoteLine}
     \colorbox{noteQuoteBackground}{\usebox{\coloredquotationbox}}\par\nointerlineskip
-    
-    \begingroup
-    {\color{noteQuoteLine}\hrule}%
-    \color{noteQuoteBackground}%
-    {\color{noteQuoteLine}\hrule}%
-    \endgroup
+    \noteBorder{noteQuoteBackground}{noteQuoteLine}
+  }
+  \end{trivlist}
+ }
+
+
+\definecolor{commentQuoteLine}{RGB}{179,179,179}
+\definecolor{commentQuoteBackground}{RGB}{239,240,241}
+
+\newenvironment{commentQuote}
+ {%
+  \begin{trivlist}
+  \begin{lrbox}{\coloredquotationbox}
+  \begin{minipage}{\dimexpr\linewidth-2\fboxsep}
+  \itshape
+ }
+ {%
+\end{minipage}
+\end{lrbox}
+\item\relax
+\parbox{\linewidth}{
+   \noteBorder{commentQuoteBackground}{commentQuoteLine}
+   \colorbox{commentQuoteBackground}{\usebox{\coloredquotationbox}}\par\nointerlineskip
+   \noteBorder{commentQuoteBackground}{commentQuoteLine}
   }
   \end{trivlist}
  }
