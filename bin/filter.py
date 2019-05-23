@@ -7,6 +7,7 @@ emphasized text.
 
 from pandocfilters import toJSONFilter, toJSONFilters, Strong, Para, Header, stringify, RawInline, BlockQuote, RawBlock, Str
 import json
+import re
 
 
 filename = "./bin/debuglog.log" 
@@ -20,8 +21,12 @@ def latex(s):
     return RawBlock('latex', s)
 
 def titleize(text):
-  exceptions = ['the', 'a', 'and', 'vs']
-  return ' '.join([word if word in exceptions else word.title() for word in text.split()])
+  def isException(word):
+    # is word in exception list or is it all caps with an optional "s" e.g DVI or VGAs
+    exceptions = ['the', 'a', 'and', 'vs']
+    return (word in exceptions ) or re.match("^[A-Z]+s?$", word)
+
+  return ' '.join([word if isException(word) else word.title() for word in text.split()])
 
 ################ FILTERS
 ################ FILTERS

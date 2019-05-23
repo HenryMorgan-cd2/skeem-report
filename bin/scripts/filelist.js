@@ -32,5 +32,5 @@ function extractNumbers(file) {
 }
 
 function isSectionFile(file) {
-  return file.match(/(\d+\.)+\w+\.md/)
+  return file.match(/^(\d+\.)+\w+\.md$/)
 }
