@@ -6,6 +6,15 @@ let files = fs
   .readdirSync("./sections")
   .filter(isSectionFile)
   .map(extractNumbers)
+  .filter(file => {
+    const numFilter = process.argv[2]
+    if (!numFilter) {
+      return true
+    }
+
+    const nums = numFilter.split(".").map(Number)
+    return nums.every((num, i) => num === file.numbers[i])
+  })
 files.sort((a, b) => {
   return comp(a.numbers[0], b.numbers[0], () => {
     return comp(a.numbers.length, b.numbers.length, () => {

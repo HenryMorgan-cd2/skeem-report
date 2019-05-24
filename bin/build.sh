@@ -15,6 +15,6 @@ pandoc \
   --bibliography=references.bib \
   --template ./bin/template.tex \
   -o report.pdf \
-  `node bin/scripts/filelist.js`
+  `node bin/scripts/filelist.js $1`
   # test.md
   # --pdf-engine=xelatex \
