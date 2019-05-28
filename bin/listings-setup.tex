@@ -75,3 +75,7 @@
   identifierstyle = \color{listing-identifier}
 }
 
+\definecolor{inlinebackground}{HTML}{ececec}
+\let\oldpassthrough\passthrough
+\renewcommand{\passthrough}[1]{\colorbox{inlinebackground}{\oldpassthrough{#1}}}
+

@@ -41,3 +41,11 @@ Term 2
 \item item 6
 \end{itemize}
 \end{multicols}
+
+## Numbered section referencing
+
+```
+### Header {#header}
+
+Please see section \ref{header}
+```
