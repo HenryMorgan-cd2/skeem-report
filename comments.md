@@ -35,9 +35,58 @@ Creating an Operatio section. 1st sentence under listing 9. Actually not sure ab
 4.4 exacerbate?
 5.1 is the first sentence supposed to be part of the bullet points? Aso needs to be capitalised
 5.2 dont follow the part starting "accessed an in-productio..."
-5.2 "I went through..." is this supposed to read recorded? Capitalise attributes 
+5.2 "I went through..." is this supposed to read recorded? Capitalise attributes
 5.3 read this one yourself as I got lost! consistency of capitalisation
 
+---
 
+---
 
+---
 
+# Must do
+
+- [ ] Problem Def
+  - [ ] Authentication
+- [ ] Requirements
+- [ ] Solution
+  - [ ] Value proposition
+  - [ ] http server
+  - [ ] configuration?
+  - [ ] file managment and capabilities
+  - [ ] Mutations
+  - [ ] plugins
+    - [ ] remove lots of the tutorial
+  - [ ] documentation
+- [ ] Methodology
+  - [ ] review development strategy
+- [ ] implementation
+
+* [ ] Technologies
+  - [ ] Other libraries and services
+* [ ] Project structure
+* [ ] The Schema
+
+  - [ ] Providers section
+
+* [ ] Sessions and Authentication
+* [ ] plugins
+* [ ] Http server
+* [ ] CLI
+* [ ] GUI
+* [ ] documentation
+
+* [ ] Testing
+
+* [ ] Deployments
+
+* [ ] Conclusion
+
+* [ ] Future Work
+
+# Minor
+
+- implementation
+  - Fetches
+    - attributes
+      - talk about aliases
