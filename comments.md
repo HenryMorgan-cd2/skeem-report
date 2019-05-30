@@ -46,43 +46,34 @@ Creating an Operatio section. 1st sentence under listing 9. Actually not sure ab
 
 # Must do
 
-- [ ] Problem Def
-  - [ ] Authentication
-- [ ] Requirements
-- [ ] Solution
-  - [ ] Value proposition
-  - [ ] http server
-  - [ ] configuration?
-  - [ ] file managment and capabilities
-  - [ ] Mutations
-  - [ ] plugins
-    - [ ] remove lots of the tutorial
-  - [ ] documentation
-- [ ] Methodology
-  - [ ] review development strategy
-- [ ] implementation
+- Problem Def
+  - Authentication
+- Requirements
+- Solution
 
-* [ ] Technologies
-  - [ ] Other libraries and services
-* [ ] Project structure
-* [ ] The Schema
+  - Value proposition
+  - http server
+  - configuration?
+  - file managment and capabilities
+  - Mutations
+  - plugins
+    - remove lots of the tutorial
+  - documentation
 
-  - [ ] Providers section
-
-* [ ] Sessions and Authentication
-* [ ] plugins
-* [ ] Http server
-* [ ] CLI
-* [ ] GUI
-* [ ] documentation
-
-* [ ] Testing
-
-* [ ] Deployments
-
-* [ ] Conclusion
-
-* [ ] Future Work
+- implementation
+  - Technologies
+    - Other libraries and services
+  - Project structure
+  - The Schema
+    - Providers section
+  - Sessions and Authentication
+  - plugins
+  - Http server
+  - CLI
+  - GUI
+  - documentation
+- Conclusion
+- Future Work
 
 # Minor
 
