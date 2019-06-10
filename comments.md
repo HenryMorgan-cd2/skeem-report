@@ -60,6 +60,9 @@ Creating an Operatio section. 1st sentence under listing 9. Actually not sure ab
     - remove lots of the tutorial
   - documentation
 
+
+
+
 - implementation
   - Technologies
     - Other libraries and services
